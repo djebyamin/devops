@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Cloner le Dépôt') {
             steps {
-                git 'https://github.com/djebyamin/devops.git'
+                git branch:'master',url:'https://github.com/djebyamin/devops.git'
             }
         }
         stage('Construire l\'Image Docker') {
