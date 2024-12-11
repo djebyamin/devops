@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    environment:
+      - DATABASE_URL=postgresql://user:password@postgres:5432/music_classifier
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: music_classifier
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # Placeholder pour les services de classification
+  # svm-service:
+  #   build: ./classification/svm
+  #   ports:
+  #     - "5001:5000"
+
+  # vgg19-service:
+  #   build: ./classification/vgg19
+  #   ports:
+  #     - "5002:5000"
+
+volumes:
+  postgres_data:

@@ -1,0 +1,37 @@
+# syntax=docker/dockerfile:1
+
+# Arguments pour les versions de Node.js et PNPM
+ARG NODE_VERSION=20.15.1
+ARG PNPM_VERSION=9.5.0
+
+# Utilisation de l'image Node.js Alpine
+FROM node:${NODE_VERSION}-alpine
+
+# Configuration de l'environnement en production
+ENV NODE_ENV=production
+
+# Installation de PNPM avec cache
+RUN --mount=type=cache,target=/root/.npm \
+    npm install -g pnpm@${PNPM_VERSION}
+
+# Définition du répertoire de travail
+WORKDIR /usr/src/app
+
+# Téléchargement des dépendances avec PNPM
+# Utilisation de `--mount` pour optimiser le cache
+RUN --mount=type=bind,source=package.json,target=package.json \
+    --mount=type=bind,source=pnpm-lock.yaml,target=pnpm-lock.yaml \
+    --mount=type=cache,target=/root/.local/share/pnpm/store \
+    pnpm install --prod --frozen-lockfile
+
+# Exécution de l'application sous l'utilisateur non-root
+USER node
+
+# Copie du reste des fichiers dans l'image
+COPY . .
+
+# Exposition du port utilisé par l'application
+EXPOSE 3000
+
+# Commande de démarrage (JSON format recommandé)
+CMD ["node", "index.js"]

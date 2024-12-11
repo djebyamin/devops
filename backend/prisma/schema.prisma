@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model MusicClassification {
+  id           Int      @id @default(autoincrement())
+  filename     String
+  model        String   // 'svm' ou 'vgg19'
+  genre        String
+  confidence   Float
+  createdAt    DateTime @default(now())
+}

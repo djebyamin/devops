@@ -1,0 +1,45 @@
+# Dockerfile pour svm_service et vgg19_service (identique)
+FROM python:3.9-slim
+
+WORKDIR /app
+
+# Installer les dépendances système
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libsndfile1 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copier les fichiers de requirements
+COPY requirements.txt .
+
+# Installer les dépendances Python
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copier le code de l'application
+COPY . .
+
+# Exposer le port
+EXPOSE 5000
+
+# Commande pour démarrer l'application
+CMD ["python", "app.py"]
+
+# Dockerfile pour frontend
+FROM python:3.9-slim
+
+WORKDIR /app
+
+# Copier les fichiers de requirements
+COPY requirements.txt .
+
+# Installer les dépendances
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copier le code de l'application
+COPY . .
+
+# Exposer le port
+EXPOSE 80
+
+# Commande pour démarrer l'application
+CMD ["python", "app.py"]

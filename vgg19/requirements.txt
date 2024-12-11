@@ -1,0 +1,17 @@
+# svm_service/requirements.txt
+flask==2.1.0
+numpy==1.22.3
+scikit-learn==1.0.2
+librosa==0.9.1
+joblib==1.1.0
+
+# vgg19_service/requirements.txt
+flask==2.1.0
+numpy==1.22.3
+librosa==0.9.1
+tensorflow==2.8.0
+Pillow==9.1.0
+
+# frontend/requirements.txt
+flask==2.1.0
+requests==2.27.1

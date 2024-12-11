@@ -1,0 +1,161 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom right, #e0e7ff, #ede9fe);
+    color: #333;
+  }
+  
+  /* Container */
+  .container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  /* Card */
+  .card {
+    width: 100%;
+    max-width: 400px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+  }
+  
+  .card-header {
+    background: linear-gradient(to right, #6366f1, #8b5cf6);
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .card-body label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .card-body input[type="file"] {
+    display: none;
+  }
+  
+  .card-body .file-upload {
+    display: block;
+    padding: 15px;
+    border: 2px dashed #bbb;
+    border-radius: 8px;
+    text-align: center;
+    color: #888;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .card-body .file-upload:hover {
+    border-color: #6366f1;
+    color: #6366f1;
+  }
+  
+  .card-body button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .card-body button.primary {
+    background: #6366f1;
+    color: #fff;
+  }
+  
+  .card-body button.primary:hover {
+    background: #4f46e5;
+  }
+  
+  .card-body button.secondary {
+    background: #22c55e;
+    color: #fff;
+  }
+  
+  .card-body button.secondary:hover {
+    background: #16a34a;
+  }
+  
+  .card-body button.danger {
+    background: #ef4444;
+    color: #fff;
+  }
+  
+  .card-body button.danger:hover {
+    background: #dc2626;
+  }
+  
+  .card-body select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #555;
+    margin: 10px 0;
+  }
+  
+  /* Alerts */
+  .alert {
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+  }
+  
+  .alert.success {
+    background: #dcfce7;
+    color: #166534;
+  }
+  
+  .alert.error {
+    background: #fee2e2;
+    color: #991b1b;
+  }
+  
+  .alert.info {
+    background: #fef9c3;
+    color: #854d0e;
+  }
+  
+  .alert.recording {
+    background: #fffbeb;
+    color: #a16207;
+  }
+  
+  /* Text Alignment */
+  .text-center {
+    text-align: center;
+  }
+  
+  .text-large {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  /* Utility */
+  .mt-4 {
+    margin-top: 1rem;
+  }
+  
