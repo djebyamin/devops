@@ -22,7 +22,7 @@ pipeline {
             }
         }
     }
-     ************************
+     
     stage('Construire l\'Image Docker') {
             steps {
                 script{
